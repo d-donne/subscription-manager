@@ -1,15 +1,14 @@
 import express, {type Request, type Response } from "express";
-import dotenv from "dotenv";
+import { PORT } from "./config/env.js";
 
-dotenv.config({debug: true});
+console.log(`Environment Port: ${PORT}`);
 
 const app = express();
-const port = process.env.PORT;
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
+  res.send("Welcome to Subscription Manager!");
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running on port http://localhost:${PORT}`);
 });
