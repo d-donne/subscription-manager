@@ -8,4 +8,5 @@
     "forceConsistentCasingInFileNames": true
   },
   "include": ["**/*.ts"],
+  "exclude": ["node_modules", "eslint.config.ts"]
 }
