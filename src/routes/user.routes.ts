@@ -1,21 +1,11 @@
 import { Router } from "express";
+import { handleGetUserById, handleGetUsers } from "../controllers/user.controller";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.send({
-    title: "Get all users",
-    message: "List of users fetched successfully",
-  });
-});
+router.get("/", handleGetUsers);
 
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  res.send({
-    title: "Get user by ID",
-    message: `User with ID ${id} fetched successfully`,
-  });
-});
+router.get("/:id", handleGetUserById);
 
 router.post("/", (req, res) => {
   res.send({
