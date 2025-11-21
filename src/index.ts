@@ -1,14 +1,17 @@
-import express, {type Request, type Response } from "express";
-import { PORT } from "./config/env.js";
-
-console.log(`Environment Port: ${PORT}`);
+import express, { type Request, type Response } from "express";
+import router from "./routes";
+import { PORT } from "./config/env";
+import { connectToDB } from "./database/mongodb";
 
 const app = express();
+
+app.use("/api", router);
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to Subscription Manager!");
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async   () => {
   console.log(`Server running on port http://localhost:${PORT}`);
+  await connectToDB();
 });
