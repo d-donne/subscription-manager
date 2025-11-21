@@ -1,26 +1,12 @@
 import { Router } from "express";
+import { handleSignIn, handleSignOut, handleSignUp } from "../controllers/auth.controller";
 
 const router = Router();
 
-router.post("sign-up", (req, res) => {
-  res.send({
-    message: "User signed up successfully",
-    statusbar: "success",
-  });
-});
+router.post("/sign-up",  handleSignUp);
 
-router.post("sign-in", (req, res) => {
-  res.send({
-    message: "User signed in successfully",
-    statusbar: "success",
-  });
-});
+router.post("/sign-in", handleSignIn);
 
-router.post("sign-out", (req, res) => {
-  res.send({
-    message: "User signed out successfully",
-    statusbar: "success",
-  });
-});
+router.post("/sign-out", handleSignOut);
 
 export default router;
