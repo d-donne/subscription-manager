@@ -4,12 +4,16 @@ import { PORT } from "./config/env";
 import { connectToDB } from "./database/mongodb";
 import { errorHandler } from "./middlewares/error.middleware";
 import cookieParser from "cookie-parser";
+import { logger } from "./middlewares/logger.middleware";
 
 const app = express();
 
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(logger);
+
 app.use("/api", router);
 
 app.get("/", (req: Request, res: Response) => {
