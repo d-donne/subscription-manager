@@ -1,6 +1,7 @@
 import { Router } from "express";
+import { handleCreateSubscription, handleGetUserScriptions } from "../controllers/subscription.controller";
 
-const router = Router()
+const router = Router();
 
 router.get("/", (req, res) => {
   res.send({
@@ -9,20 +10,9 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/:id", (req, res) => {
-  const { id } = req.params;
-  res.send({
-    title: "Get subscription by ID",
-    message: `Subscription with ID ${id} fetched successfully`,
-  });
-});
+router.get("/:userId", handleGetUserScriptions);
 
-router.post("/", (req, res) => {
-  res.send({
-    title: "Create new subscription",
-    message: "Subscription created successfully",
-  });
-});
+router.post("/", handleCreateSubscription);
 
 router.put("/:id", (req, res) => {
   const { id } = req.params;
