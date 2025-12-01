@@ -8,3 +8,9 @@ export const logger = (req: Request, res: Response, next: NextFunction) => {
   }
   next();
 };
+
+
+// logging
+export const logMessage = (message: string) => {
+  console.log(`[${new Date().toISOString()}] ${message}`);
+};
