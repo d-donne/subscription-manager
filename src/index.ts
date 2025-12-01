@@ -13,8 +13,8 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(arcjetMiddleware);
 app.use(logger);
+app.use(arcjetMiddleware);
 
 app.use("/api", router);
 
