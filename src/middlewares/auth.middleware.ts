@@ -18,7 +18,7 @@ export const authorizeUser = (req: Request, res: Response, next: NextFunction) =
 
     const decoded = jwt.verify(token, JWT_SECRET);
     if (decoded && typeof decoded === "object") {
-      const user = User.findById(decoded.userId);
+      const user = User.findById(decoded.id);
 
       if (!user) {
         throw AppError("Unauthorized", 401);

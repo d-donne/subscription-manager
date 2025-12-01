@@ -33,7 +33,7 @@ export const handleSignUp = async (req: Request, res: Response, next: NextFuncti
 
     const token = jwt.sign(
       {
-        userId: newUsers[0]._id,
+        id: newUsers[0]._id,
         email: newUsers[0].email,
       },
       JWT_SECRET,
@@ -74,7 +74,7 @@ export const handleSignIn = async (req: Request, res: Response, next: NextFuncti
 
     const token = jwt.sign(
       {
-        userId: user._id,
+        id: user._id,
         email: user.email,
       },
       JWT_SECRET,
@@ -86,7 +86,7 @@ export const handleSignIn = async (req: Request, res: Response, next: NextFuncti
       httpOnly: true,
       secure: false,
       sameSite: "strict",
-      maxAge: ms("1d"),
+      maxAge: ms("7d"),
     });
     res.status(200).json({
       message: "User signed in successfully",

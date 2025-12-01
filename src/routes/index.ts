@@ -8,6 +8,6 @@ const router = Router();
 
 router.use("/users", authorizeUser, userRoutes);
 router.use("/auth", authRoutes);
-router.use("/subscriptions", subscriptionRoutes);
+router.use("/subscriptions", authorizeUser, subscriptionRoutes);
 
 export default router;
