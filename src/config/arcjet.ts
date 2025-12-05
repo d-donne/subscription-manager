@@ -6,10 +6,10 @@ export const aj = arcjet({
   rules: [
     shield({ mode: "LIVE" }),
     detectBot({
-      mode: "DRY_RUN",
+      mode: "LIVE",
       allow: [
         "CATEGORY:SEARCH_ENGINE",
-        // "CATEGORY:TOOL", allow known tools like curl, postman, etc
+        "CATEGORY:TOOL", //allow known tools like curl, postman, etc
         // See the full list at https://arcjet.com/bot-list
       ],
     }),
