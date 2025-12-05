@@ -17,7 +17,7 @@ export enum ReminderTypes {
   ONE_DAY = "1 day before reminder",
 };
 
-export const generateReminderType = (daysBefore: number): ReminderTypes => {
+export const generateReminderType = (daysBefore: number): ReminderTypes | undefined => {
   switch (daysBefore) {
     case 7:
       return ReminderTypes.SEVEN_DAYS;
@@ -28,7 +28,7 @@ export const generateReminderType = (daysBefore: number): ReminderTypes => {
     case 1:
       return ReminderTypes.ONE_DAY;
     default:
-      throw new Error(`Invalid daysBefore value: ${daysBefore}`);
+      break;
   }
 }
 
