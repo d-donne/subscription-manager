@@ -20,6 +20,9 @@ const envSchema = z.object({
   QSTASH_TOKEN: z.string(),
   QSTASH_CURRENT_SIGNING_KEY: z.string().optional(),
   QSTASH_NEXT_SIGNING_KEY: z.string().optional(),
+
+  EMAIL_USER: z.string(),
+  EMAIL_PASSWORD: z.string(),
 });
 
 const env = envSchema.parse(process.env); // throws if invalid/missing
@@ -36,4 +39,6 @@ export const {
   QSTASH_TOKEN,
   QSTASH_CURRENT_SIGNING_KEY,
   QSTASH_NEXT_SIGNING_KEY,
+  EMAIL_USER,
+  EMAIL_PASSWORD,
 } = env;
