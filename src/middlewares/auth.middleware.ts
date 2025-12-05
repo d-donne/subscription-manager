@@ -26,7 +26,7 @@ export const authorizeUser = async (req: Request, res: Response, next: NextFunct
       req.user = user;
       next();
     } else {
-      throw AppError("Invalid token", 401);
+      throw AppError("Invalid authentication token", 401);
     }
   } catch (error) {
     next(error);
