@@ -57,7 +57,7 @@ const subscriptionSchema = new mongoose.Schema(
       enum: ["active", "inactive", "canceled", "expired"],
       default: "active",
     },
-    userId: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       index: true,
