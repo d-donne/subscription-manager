@@ -10,9 +10,9 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/:userId", handleGetUserScriptions);
-
 router.post("/", handleCreateSubscription);
+
+router.get("/:userId", handleGetUserScriptions);
 
 router.put("/:id", (req, res) => {
   const { id } = req.params;
