@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../config/env";
 import User from "../database/models/user.model";
 
-export const authorizeUser = (req: Request, res: Response, next: NextFunction) => {
+export const authorizeUser = async (req: Request, res: Response, next: NextFunction) => {
   try {
     let token;
 
@@ -18,7 +18,7 @@ export const authorizeUser = (req: Request, res: Response, next: NextFunction) =
 
     const decoded = jwt.verify(token, JWT_SECRET);
     if (decoded && typeof decoded === "object") {
-      const user = User.findById(decoded.id);
+      const user = await User.findById(decoded.id);
 
       if (!user) {
         throw AppError("Unauthorized", 401);
