@@ -70,3 +70,9 @@ export const AppError = (message: string, statusCode: number) => {
   Error.captureStackTrace(error, AppError);
   return error;
 };
+
+export const DevError = (source: string, message: string) => {
+  if (NODE_ENV === "development") {
+    console.error(`🛠️ [DEV ERROR] in ${source}: ${message}`);
+  }
+};
